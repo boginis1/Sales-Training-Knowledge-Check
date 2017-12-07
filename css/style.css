@@ -13,17 +13,21 @@ body {
 
 .header {
  background-color: #6B8E23 ;
-   margin:auto;
-  width: 100%;
-      color: white;
- 
+ margin:auto;
+  width: 80%;
+ color: white;
  font-size:20px;
  text-align: center;
  }
-#startTheGame button {
+#startGame {
+  background-color: white;
+  border-radius: 30px;
   width:100px; 
   height:50px;
-  font-size:20px;
+  font-size:25px;
+  margin:auto;
+  padding:10px;
+  color:#6B8E23;
 }
  #timer {
    text-align: center;
@@ -35,46 +39,51 @@ body {
    font-style: bold;
    border-radius: 70px;
  }
+
+#startTheGame {
+float:left;
+background-color: #CD853F ;
+border-radius: 40px;
+text-align: center;
+font-size: 30px;
+width: 95%;
+height:200px;
+padding: 20px;
+}
+
 .grid {
+  margin-left: 2cm;
+  width:800px;
   visibility: hidden;
-  width:700px;
-  height:500px;
-  margin: 0 auto;
   padding: 10px 50px 50px 50px;
   border-radius: 70px;
   border: 2px solid #cbcbcb;
   box-shadow: 0 10 15 5 #cbcbcb;
 
 }
-#startTheGame {
-  background-color: #CD853F ;
-  border-radius: 40px;
-text-align: center;
-font-size: 30px;
-
-}
  #question{
-  
+  font-size: 30px;
   background-color: #6B8E23 ;
    margin:auto;
    height:100px;
+   padding:20px;
    width: 100%;
 }
 .button {
   
-  margin-top: 30px;
+  margin-top: 10px;
   
 }
 
 #btn0, #btn1, #btn2, #btn3 {
-  background-color: #778897
+  background-color: #CD853F;
   width:200px;
-  font-size: 20px;
+  font-size: 30px;
   color: #fff;
   border: 1px solid #1d3c6a;
   border-radius: 50px;
-  margin: 10px 40px 10pc 0px;
-  padding: 10px, 10px;
+  margin: auto;
+  padding: 20px;
 }
 
 #btn0:hover, #btn1:hover, #btn2:hover, #btn3:hover {
@@ -88,8 +97,8 @@ font-size: 30px;
   
   }
 #progress {
-  color: #2b2b2b;
-  font-size: 10px;
+  color: white;
+  font-size: 15px;
 }
 
 
