@@ -41,7 +41,7 @@ body {
  }
 
 #startTheGame {
-float:left;
+margin: 0 auto;
 background-color: #CD853F ;
 border-radius: 40px;
 text-align: center;
@@ -52,14 +52,34 @@ padding: 20px;
 }
 
 .grid {
-  margin-left: 2cm;
+  display:none;
+  margin: 0 auto;
   width:800px;
-  visibility: hidden;
   padding: 10px 50px 50px 50px;
   border-radius: 70px;
   border: 2px solid #cbcbcb;
   box-shadow: 0 10 15 5 #cbcbcb;
 
+}
+#results {
+  display:none;
+  margin: 0 auto;
+  width:800px;
+  padding: 10px 50px 50px 50px;
+  border-radius: 70px;
+  border: 2px solid #cbcbcb;
+  box-shadow: 0 10 15 5 #cbcbcb;
+
+}
+#response {
+  display:none;
+  margin: 0 auto;
+  width:800px;
+  padding: 10px 50px 50px 50px;
+  border-radius: 70px;
+  border: 2px solid #cbcbcb;
+  box-shadow: 0 10 15 5 #cbcbcb;
+  font-size: 25px;
 }
  #question{
   font-size: 30px;

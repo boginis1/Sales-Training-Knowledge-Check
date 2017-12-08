@@ -1,5 +1,8 @@
 $(document).ready(function() {
     // Handler for .ready() called.
+
+    var selection;
+
     var triviaQandA = [{
             "question": "Creating awareness or questioning the status quo is the strategy for which stage of the customer journey?",
             "answers": ["Inspire", "Guide", "Captivate", "Persuade"],
@@ -65,25 +68,29 @@ $(document).ready(function() {
     ];
 
     var questionIndex = 0;
-    var correctAnswer = 0
-    var wrongAnswer = 0
-    var timeOutAnswer = 0
+    var correctAnswer = 0;
+    var wrongAnswer = 0;
+    var timeOutAnswer = 0;
 
     //Timer program
-    var interValID = setInterval(timeIt, 1000);
+    var interValID;
 
-    var counter = 0
-    var timeLeft = 30
+    var counter = 0;
     var timer = $("#timer");
-    timer.html("<h2>You have " + (timeLeft - counter) + " seconds left</h2>");
-
+    
     function timeIt() {
+        var timeLeft = 10
         counter++
         timer.html("<h2>You have " + (timeLeft - counter) + " seconds left</h2>");
         if (counter == timeLeft) {
             counter = 0
             timer.html("<h2>Your time is up!</h2>");
-            clearInterval(interValID);
+            //clearInterval(interValID);
+            $("#response").show();
+            $("#response").html("You ran out of time. " + selection.response);
+            timeOutAnswer++;
+            questionIndex++;
+            setTimeout(getQuestion, 3000);
         }
     }
 
@@ -92,68 +99,76 @@ $(document).ready(function() {
         getQuestion();
     });
 
-function showProgress() {
-                var currentQuestionNumber = questionIndex + 1;
-                var element = $("#progress");
-                element.innerHTML = "Question " + (currentQuestionNumber) + "of" + question.length;
-            }
+    function showProgress() {
+        var currentQuestionNumber = questionIndex + 1;
+        var element = $("#progress");
+        element.text("Question " + currentQuestionNumber + " of " + triviaQandA.length);
+
+    }
 
     function getQuestion() {
         //var a = 0;
-        $("#startTheGame").css("visibility", "hidden");
-        $("#startGame").css("visibility", "hidden");
-        $(".grid").css("visibility", "visible");
-        timeIt(30, 1000);
-        var selection = triviaQandA[questionIndex];
-        this.question = selection["question"];
-        this.answers = selection["answers"];
-        this.correct = selection["correct"];
-        this.response = selection["response"];
-        $("#question").html(selection["question"]);
-        var answers = selection.answers;
         
-        for (var i = 0; i < answers.length; i++) {
-            btn = $("button#btn" + [i]).append(answers[i]);
-                
-                console.log (btn + [i]);
+        $("#startTheGame").hide();
+        $("#startGame").hide();
+        $("#response").hide();
+        $(".grid").show();
+        interValID = setInterval(timeIt, 1000);
+        selection = triviaQandA[questionIndex];
+        $("#question").html(selection.question);
+        console.log(question);
+
+        for (var i = 0; i < selection.answers.length; i++) {
+            btn = $("button#btn" + [i]).text(selection.answers[i]);
+
+            
         }
         showProgress();
-        questionIndex++
-
     }
 
 
     $("button").click(function() {
-        
+        var choice = $(this).text();
 
         clearInterval(interValID);
 
-
+        checkAnswer(choice);
 
     });
 
+
+
+    function checkAnswer(choice) {
     
-
-    function checkAnswer() {
-        
-        if ($("button").hasClass("winner")) {
+        if (choice === selection.correct) {
             correctAnswer++
-            console.log (winner);
-            $("#response").html("You are correct!" + response);
-        } else if (counter == timeLeft) {
-            $("#response").html("You ran out of time" + response);
-            timeOutAnswer++
-        }
-            else 
-        {
-
-            $("#response").html("You are incorrect!" + response);
+            $("#response").show();
+            $("#response").html("You are correct! " + selection.response);
+            
+        }   else {
             wrongAnswer++
-        }
+            $("#response").show();
+            $("#response").html("You are incorrect! " + selection.response);
+            }
 
-        getQuestion();
-
+        questionIndex++;
+        checkEnd()
+        setTimeout(getQuestion, 3000);
+        
+   
     }
- 
+
+function showResults() {
+        $("#grid").hide();
+        $("#results").show();
+        $("#results").html("# of Correct Answeres = " + correctAnswer, "# of Incorrect Answers = " + wrongAnswer, " # of Timed Out = " + timeOutAnswer);
+        
+    }
+
+    function checkEnd(){
+        if (questionIndex === 11){
+            showResults();
+        }
+    }
 
 });
