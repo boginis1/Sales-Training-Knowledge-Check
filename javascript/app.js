@@ -74,28 +74,27 @@ $(document).ready(function() {
 
     //Timer program
     var interValID;
-
+    var timeLeft = 20
     var counter = 0;
     var timer = $("#timer");
-    
+
     function timeIt() {
-        var timeLeft = 10
-        counter++
+        
         timer.html("<h2>You have " + (timeLeft - counter) + " seconds left</h2>");
         if (counter == timeLeft) {
-            counter = 0
             timer.html("<h2>Your time is up!</h2>");
-            //clearInterval(interValID);
+            clearInterval(interValID);
             $("#response").show();
             $("#response").html("You ran out of time. " + selection.response);
             timeOutAnswer++;
-            questionIndex++;
-            setTimeout(getQuestion, 3000);
+            checkEnd();
         }
+        counter++
     }
 
 
     $("#startGame").click(function() {
+        timer.html("<h2>Starting timer...</h2>")
         getQuestion();
     });
 
@@ -108,7 +107,7 @@ $(document).ready(function() {
 
     function getQuestion() {
         //var a = 0;
-        
+
         $("#startTheGame").hide();
         $("#startGame").hide();
         $("#response").hide();
@@ -121,7 +120,7 @@ $(document).ready(function() {
         for (var i = 0; i < selection.answers.length; i++) {
             btn = $("button#btn" + [i]).text(selection.answers[i]);
 
-            
+
         }
         showProgress();
     }
@@ -130,7 +129,7 @@ $(document).ready(function() {
     $("button").click(function() {
         var choice = $(this).text();
 
-        clearInterval(interValID);
+
 
         checkAnswer(choice);
 
@@ -139,36 +138,45 @@ $(document).ready(function() {
 
 
     function checkAnswer(choice) {
-    
+
         if (choice === selection.correct) {
             correctAnswer++
             $("#response").show();
-            $("#response").html("You are correct! " + selection.response);
-            
-        }   else {
+            $("#response").html("Way to go!  You are correct! " + selection.response);
+
+        } else {
             wrongAnswer++
             $("#response").show();
-            $("#response").html("You are incorrect! " + selection.response);
-            }
-
-        questionIndex++;
-        checkEnd()
-        setTimeout(getQuestion, 3000);
-        
-   
-    }
-
-function showResults() {
-        $("#grid").hide();
-        $("#results").show();
-        $("#results").html("# of Correct Answeres = " + correctAnswer, "# of Incorrect Answers = " + wrongAnswer, " # of Timed Out = " + timeOutAnswer);
-        
-    }
-
-    function checkEnd(){
-        if (questionIndex === 11){
-            showResults();
+            $("#response").html("Oops, you are incorrect! " + selection.response);
         }
+
+        
+        
+        clearInterval(interValID);
+
+        checkEnd();
+
+
+    }
+
+    function showResults() {
+        $(".grid").hide();
+        $("#results").show();
+        $("#results").html("# of Correct Answers = " + correctAnswer + " | " + "# of Incorrect Answers = " + wrongAnswer + " | " + "  # of Timed Out = " + timeOutAnswer);
+        
+    }
+
+    function checkEnd() {
+            questionIndex++;
+            if (questionIndex === (triviaQandA.length)){
+
+            showResults();
+            } else  {
+                counter=0;
+                
+                setTimeout(getQuestion, 4000);
+
+            }
     }
 
 });

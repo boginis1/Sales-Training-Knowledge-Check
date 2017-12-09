@@ -22,13 +22,20 @@ body {
 #startGame {
   background-color: white;
   border-radius: 30px;
-  width:100px; 
+  width:250px; 
   height:50px;
-  font-size:25px;
+  font-size:40px;
   margin:auto;
-  padding:10px;
+  padding:20px;
   color:#6B8E23;
 }
+#startGame:hover {
+  cursur: pointer;
+  background-color: #DEB887;
+  color:white;
+  border: none;
+  outline: 0pt;
+  }
  #timer {
    text-align: center;
    background-color: #CD853F ;
@@ -46,35 +53,36 @@ background-color: #CD853F ;
 border-radius: 40px;
 text-align: center;
 font-size: 30px;
-width: 95%;
+width: 80%;
 height:200px;
-padding: 20px;
+padding: 10px;
 }
 
 .grid {
   display:none;
   margin: 0 auto;
-  width:800px;
+  width:900px;
   padding: 10px 50px 50px 50px;
   border-radius: 70px;
   border: 2px solid #cbcbcb;
-  box-shadow: 0 10 15 5 #cbcbcb;
+  box-shadow: 0 10 45 5 #cbcbcb;
 
 }
 #results {
+  background-color: #CD853F;
   display:none;
   margin: 0 auto;
-  width:800px;
+  width:900px;
   padding: 10px 50px 50px 50px;
   border-radius: 70px;
   border: 2px solid #cbcbcb;
   box-shadow: 0 10 15 5 #cbcbcb;
-
+  font-size: 25px;
 }
 #response {
   display:none;
   margin: 0 auto;
-  width:800px;
+  width:900px;
   padding: 10px 50px 50px 50px;
   border-radius: 70px;
   border: 2px solid #cbcbcb;
@@ -91,34 +99,32 @@ padding: 20px;
 }
 .button {
   
-  margin-top: 10px;
+  margin-top: 5px;
   
 }
 
 #btn0, #btn1, #btn2, #btn3 {
   background-color: #CD853F;
-  width:200px;
+  width:300px;
   font-size: 30px;
   color: #fff;
-  border: 1px solid #1d3c6a;
+  border: 1px solid #D2691E;
   border-radius: 50px;
-  margin: auto;
-  padding: 20px;
+  margin: 0 auto;
+  padding: 15px;
+  outline: 0pt; 
 }
 
 #btn0:hover, #btn1:hover, #btn2:hover, #btn3:hover {
   curser: pointer;
-  background-color: #57636e;
+  background-color: #DEB887;
+  border: none;
+  outline: 0pt;
+  }
 
-  }
-#btn0:focus, #btn1:focus, #btn2:focus, #btn3:focus {
-  outline:0px;
-  background-color: #57636e;
-  
-  }
 #progress {
   color: white;
-  font-size: 15px;
+  font-size: 20px;
 }
 
 
