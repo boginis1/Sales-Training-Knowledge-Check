@@ -31,7 +31,7 @@ $(document).ready(function() {
         {
             "question": "How many people are typically involved in the average purchase decision today?",
             "answers": ["3.4", "4.5", "6.8", "12"],
-            "correct": "6th to 8th",
+            "correct": "6.8",
             "response": "6.8 people are now typically involved in the average purchase decision today."
         },
         {
