@@ -12,7 +12,7 @@ $(document).ready(function() {
         {
             "question": "Which of these tools is NOT likely to be used to create awareness?",
             "answers": ["A - Videos", "B - Proposals", "C - Social Forums", "D - Email Blasts"],
-            "correct": "B-Proposals",
+            "correct": "B - Proposals",
             "response": "Proposals are not generally used to create awareness, but instead to persuade when the buyer is in the decision phase."
         },
         {
