@@ -162,16 +162,21 @@ $(document).ready(function() {
 
     function showResults() {
         $(".grid").hide();
-        $("#results").show();
-        $("#results").html("# of Correct Answers = " + correctAnswer + " | " + "# of Incorrect Answers = " + wrongAnswer + " | " + "  # of Timed Out = " + timeOutAnswer);
-        
+        $("#resultsCorrect").show();
+        $("#resultsCorrect").html("# of Correct Answers = " + correctAnswer) 
+        $("#resultsIncorrect").show();
+        $("#resultsIncorrect").html("# of Incorrect Answers = " + 
+            wrongAnswer)
+        $("#resultsTimedOut").show();
+        $("#resultsTimedOut").html("# of Timed Out = " + timeOutAnswer );
+        $("#resultsTwo").show();
     }
 
     function checkEnd() {
             questionIndex++;
             if (questionIndex === (triviaQandA.length)){
 
-            showResults();
+            setTimeout(showResults, 3000);
             } else  {
                 counter=0;
                 
